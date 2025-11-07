@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import java.lang.String?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.avengers.avengersgroup.AdminDashboardController">
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="10.0" style="-fx-background-color: #FAFAFA; -fx-border-color: #E0E0E0; -fx-border-width: 0 0 1 0;">
+            <children>
+                <Label text="AutoTrack Admin Portal">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets left="10.0" right="10.0" />
+            </padding>
+        </HBox>
+    </top>
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab text="Inventory Management">
+                    <content>
+                        <BorderPane>
+                            <top>
+                                <Label text="Inventory Management" BorderPane.alignment="CENTER_LEFT">
+                                    <font>
+                                        <Font name="System Bold" size="24.0" />
+                                    </font>
+                                    <BorderPane.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </BorderPane.margin>
+                                </Label>
+                            </top>
+                            <center>
+                                <TableView fx:id="productTableView" BorderPane.alignment="CENTER">
+                                    <columns>
+                                        <TableColumn fx:id="nameColumn" prefWidth="170.0" text="Product Name" />
+                                        <TableColumn fx:id="descriptionColumn" prefWidth="320.0" text="Description" />
+                                        <TableColumn fx:id="priceColumn" minWidth="0.0" prefWidth="100.0" text="Price" />
+                                        <TableColumn fx:id="stockColumn" minWidth="0.0" prefWidth="60.0" text="Stock" />
+                                        <TableColumn fx:id="actionColumn" prefWidth="120.0" text="Actions" />
+                                    </columns>
+                                    <BorderPane.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </BorderPane.margin>
+                                </TableView>
+                            </center>
+                            <right>
+                                <VBox prefWidth="300.0" spacing="10.0" BorderPane.alignment="CENTER">
+                                    <BorderPane.margin>
+                                        <Insets bottom="10.0" right="10.0" />
+                                    </BorderPane.margin>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                    <children>
+                                        <Label fx:id="formTitleLabel" text="Add New Product">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Product Name" />
+                                        <TextField fx:id="nameField" promptText="e.g., Toyota Vios Brake Pads" />
+                                        <Label text="Description" />
+                                        <TextArea fx:id="descriptionArea" prefHeight="100.0" promptText="e.g., Set of 4 semi-metallic pads..." wrapText="true" />
+                                        <HBox spacing="10.0">
+                                            <children>
+                                                <VBox HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label text="Price (PHP)" />
+                                                        <TextField fx:id="priceField" promptText="e.g., 1800.00" />
+                                                    </children>
+                                                </VBox>
+                                                <VBox HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label text="Stock" />
+                                                        <TextField fx:id="stockField" promptText="e.g., 50" />
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                        <HBox spacing="10.0">
+                                            <children>
+                                                <Button fx:id="saveButton" onAction="#onSaveProductClick" maxWidth="Infinity" prefHeight="40.0" text="Save New Product" HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="cancelButton" onAction="#onCancelEditClick" maxWidth="Infinity" prefHeight="40.0" text="Cancel" visible="false" />
+                                            </children>
+                                        </HBox>
+                                        <Label fx:id="formMessageLabel" wrapText="true" />
+                                    </children>
+                                </VBox>
+                            </right>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="reportsTab" text="Reports &amp; Analytics">
+                    <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <top>
+                                <Label text="Business Analytics" BorderPane.alignment="CENTER_LEFT">
+                                    <font>
+                                        <Font name="System Bold" size="24.0" />
+                                    </font>
+                                    <BorderPane.margin>
+                                        <Insets bottom="10.0" />
+                                    </BorderPane.margin>
+                                </Label>
+                            </top>
+                            <center>
+                                <HBox spacing="20.0">
+                                    <children>
+                                        <VBox prefWidth="300.0" spacing="10.0" style="-fx-background-color: #f4f4f4; -fx-padding: 15; -fx-background-radius: 8;">
+                                            <children>
+                                                <Label text="Sales Summary">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Total Revenue:">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="totalSalesLabel" text="₱0.00">
+                                                    <font>
+                                                        <Font name="System Bold" size="28.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Total Orders:">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="totalOrdersLabel" text="0">
+                                                    <font>
+                                                        <Font name="System Bold" size="28.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+
+                                        <VBox prefWidth="400.0" spacing="10.0">
+                                            <children>
+                                                <Label text="Low Stock Report (10 or less)">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Label>
+                                                <ListView fx:id="lowStockListView" VBox.vgrow="ALWAYS" />
+                                            </children>
+                                        </VBox>
+
+                                        <VBox prefWidth="400.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Label text="Most Popular Products (Top 5)">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Label>
+                                                <ListView fx:id="popularProductsListView" VBox.vgrow="ALWAYS" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="userManagementTab" text="User Management">
+                    <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                            <top>
+                                <Label text="Staff Account Management" BorderPane.alignment="CENTER_LEFT">
+                                    <font>
+                                        <Font name="System Bold" size="24.0" />
+                                    </font>
+                                    <BorderPane.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </BorderPane.margin>
+                                </Label>
+                            </top>
+                            <center>
+                                <TableView fx:id="userTableView" BorderPane.alignment="CENTER">
+                                    <columns>
+                                        <TableColumn fx:id="userUsernameColumn" prefWidth="250.0" text="Username" />
+                                        <TableColumn fx:id="userRoleColumn" prefWidth="150.0" text="Role" />
+                                        <TableColumn fx:id="userActionColumn" prefWidth="120.0" text="Actions" />
+                                    </columns>
+                                    <BorderPane.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </BorderPane.margin>
+                                </TableView>
+                            </center>
+                            <right>
+                                <VBox prefWidth="300.0" spacing="10.0" BorderPane.alignment="CENTER">
+                                    <BorderPane.margin>
+                                        <Insets bottom="10.0" right="10.0" />
+                                    </BorderPane.margin>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                    <children>
+                                        <Label text="Add New Staff User">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Username" />
+                                        <TextField fx:id="userUsernameField" promptText="e.g., jdelacruz" />
+                                        <Label text="Password" />
+                                        <PasswordField fx:id="userPasswordField" promptText="Min. 8 characters" />
+                                        <Label text="Role" />
+                                        <ComboBox fx:id="userRoleComboBox" maxWidth="Infinity" promptText="Select a role...">
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value="Admin" />
+                                                    <String fx:value="Cashier" />
+                                                </FXCollections>
+                                            </items>
+                                        </ComboBox>
+                                        <Button fx:id="userSaveButton" onAction="#onSaveUserClick" maxWidth="Infinity" prefHeight="40.0" text="Save New User" />
+                                        <Label fx:id="userFormMessageLabel" wrapText="true" />
+                                    </children>
+                                </VBox>
+                            </right>
+                        </BorderPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>
