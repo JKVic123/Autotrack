@@ -6,7 +6,7 @@ AutoTrack is a robust, modular desktop application designed to modernize the ope
 
 The system is engineered for **financial integrity** and **staff accountability**, ensuring precise inventory levels and traceable transactions for three distinct user roles.
 
-## 🌟 Key Features
+##  Key Features
 
 | Role | Core Functions | Technical Implementation Highlight |
 | :--- | :--- | :--- |
@@ -15,7 +15,7 @@ The system is engineered for **financial integrity** and **staff accountability*
 | **Customer** | Online storefront browsing, dynamic search, persistent shopping cart, and secure checkout. | **Client-Side Stock Validation** prevents adding out-of-stock items, improving UX. |
 | **System Core** | Financial integrity for all currency, user authentication. | **`java.math.BigDecimal`** used throughout the entire codebase for all monetary calculations, eliminating floating-point errors. |
 
-## 📐 Data Architecture (ERD Summary)
+##  Data Architecture (ERD Summary)
 
 The system utilizes a relational data model structure built within MongoDB (non-SQL) to ensure transactional integrity:
 
@@ -35,7 +35,7 @@ The system utilizes a relational data model structure built within MongoDB (non-
 
 * **Security:** jBCrypt for password hashing (`org.mindrot:jbcrypt`)
 
-## ⚙️ Setup and Installation
+##  Setup and Installation
 
 ### 1. Requirements
 
