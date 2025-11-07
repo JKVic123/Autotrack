@@ -6,23 +6,6 @@ AutoTrack is a robust, modular desktop application designed to modernize the ope
 
 The system is engineered for **financial integrity** and **staff accountability**, ensuring precise inventory levels and traceable transactions for three distinct user roles.
 
-##  Key Features
-
-| Role | Core Functions | Technical Implementation Highlight |
-| :--- | :--- | :--- |
-| **Administrator** | Inventory Management (CRUD), Staff User Management, and Advanced Reporting. | **MongoDB Aggregation Pipeline** used for the "Most Popular Products" report. |
-| **Cashier** | Dedicated Point-of-Sale (POS) terminal, quick product searching, and sale processing. | Generates a formatted **Digital Receipt** upon sale completion; uses **Client-Side Stock Validation** to prevent overselling. |
-| **Customer** | Online storefront browsing, dynamic search, persistent shopping cart, and secure checkout. | **Client-Side Stock Validation** prevents adding out-of-stock items, improving UX. |
-| **System Core** | Financial integrity for all currency, user authentication. | **`java.math.BigDecimal`** used throughout the entire codebase for all monetary calculations, eliminating floating-point errors. |
-
-##  Data Architecture (ERD Summary)
-
-The system utilizes a relational data model structure built within MongoDB (non-SQL) to ensure transactional integrity:
-
-* **Order Accountability:** The `ORDER` entity is the central transactional backbone, linking every sale via foreign keys to the **Cashier ID**, **Customer ID**, and the **Payment Method ID**.
-
-* **Data Consistency:** The `ORDERITEMS` entity captures the `priceAtSale`, preserving historical sales data even if product prices are later updated in the `PRODUCT` collection.
-
 ##  Technical Stack
 
 * **Language:** Java (JDK 23+)
