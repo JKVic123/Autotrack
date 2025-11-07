@@ -23,7 +23,7 @@ The system utilizes a relational data model structure built within MongoDB (non-
 
 * **Data Consistency:** The `ORDERITEMS` entity captures the `priceAtSale`, preserving historical sales data even if product prices are later updated in the `PRODUCT` collection.
 
-## 🛠️ Technical Stack
+##  Technical Stack
 
 * **Language:** Java (JDK 23+)
 
