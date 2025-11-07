@@ -51,3 +51,5 @@ For demonstration, use the following pre-hashed accounts. The system will automa
 3.  Ensure your MongoDB instance is running and accessible via the URI configured in `DatabaseHelper.java`.
 
 4.  Run the main class: `oop.avengers.avengersgroup.AutoTrackApplication`
+
+5. Note: Make sure to delete the module-info.java before running it in an IDE.  
